@@ -68,26 +68,11 @@ app.get("/",function(req,res){
 app.get("/:customListName",function(req,res){
     const customListName=req.params.customListName;
 
-    // List.findOne({name:customListName},function(err,foundList){
-
-    //     if(!err){
-    //         if(!foundList){
-    //             const list= new List({
-    //                 name : customListName,
-    //                 items : defaultItem
-    //             });
-    //             list.save();
-    //         }
-    //         else{
-    //             res.render("list",{listTitle:data.name , newListItems :data.items});
-    //         }
-    //     }
-    // });
- 
-
+  
  
     async function fun4(){
         try{
+
             const data= await List.findOne({name:customListName});
             res.render("list",{listTitle:data.name , newListItems :data.items});
             
